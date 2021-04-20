@@ -18,8 +18,9 @@ function main() {
     }, (argv) => {
       if (argv.verbose) console.info(`use as input: ${argv.filename}`)
       // serve(argv.port)
-      const data = getFileContent(argv.filename, argv)
-      parse(data)
+      const data = getFileContent(argv)
+      let jsonArray = parse(data, argv)
+      sort(jsonArray, argv)
     })
     .option('verbose', {
       alias: 'v',
@@ -36,20 +37,20 @@ function main() {
 
 
 
-function getFileContent (fileName, argv) {
+function getFileContent (argv) {
 
   try {
-    const absolutePath = path.normalize( fileName );
+    const absolutePath = path.normalize( argv.filename );
     const data = fs.readFileSync(absolutePath, 'utf8')
     if (argv.verbose)
-      console.log(`Data read from file ${fileName}: ${data}`)
+      console.log(`Data read from file ${argv.filename}: ${data}`)
     return data
   } catch (err) {
     console.error(err)
   }
 }
 
-function parse(data) {
+function parse(data, argv) {
   // is data real JSON?
 
   const parsed = JSON.parse(data)
@@ -58,8 +59,29 @@ function parse(data) {
     var item = [parsed[i][0], parsed[i][1]];
     arr.push(item);
   }
+  return arr
+}
 
-  console.log(`item = >${JSON.stringify(arr)}<`)
+
+function sort(jsonArray, argv) {
+  function compare(a, b) {
+    // Use toUpperCase() to ignore character casing
+    const firstA = a[0];
+    const firstB = b[0];
+
+    let comparison = 0;
+    if (firstA > firstB) {
+      comparison = 1;
+    } else if (firstA < firstB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+
+  jsonArray.sort(compare)
+
+  if (argv.verbose)
+    console.log(`item = >${JSON.stringify(jsonArray)}<`)
 
 }
 
