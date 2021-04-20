@@ -1,0 +1,19 @@
+{
+  "name": "merge-and-display",
+  "version": "1.0.0",
+  "description": "Merge tuples",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "merge",
+    "tuple",
+    "small",
+    "working",
+    "example"
+  ],
+  "author": "Wilhelm Vortisch <github@v-software.de>",
+  "license": "ISC"
+}
