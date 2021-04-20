@@ -24,7 +24,7 @@ function main() {
       if (argv.verbose)
         console.log(`item = >${JSON.stringify(sortedArray)}<`)
 
-      const mergedArray = mergeOverlabed(sortedArray, argv)
+      const mergedArray = mergeOverlapped(sortedArray, argv)
     })
     .option('verbose', {
       alias: 'v',
