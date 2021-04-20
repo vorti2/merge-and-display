@@ -19,6 +19,7 @@
   "dependencies": {
     "json-fixer": "^1.6.8",
     "jsonrepair": "^2.2.0",
+    "lodash": "^4.17.21",
     "yargs": "^16.2.0"
   }
 }

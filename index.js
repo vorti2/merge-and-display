@@ -7,6 +7,7 @@ const { hideBin } = require('yargs/helpers')
 const fs = require('fs')
 const path = require( "path" )
 const jsonrepair = require('jsonrepair')
+const _ = require('lodash')
 
 function main() {
   yargs(hideBin(process.argv))
@@ -24,7 +25,10 @@ function main() {
       if (argv.verbose)
         console.log(`item = >${JSON.stringify(sortedArray)}<`)
 
-      const mergedArray = mergeOverlapped(sortedArray, argv)
+      // const mergedArray = mergeOverlapped(sortedArray, argv)
+      const r = merge(sortedArray);
+      if (argv.verbose)
+        console.log(`r = ${JSON.stringify(r)}`)
     })
     .option('verbose', {
       alias: 'v',
@@ -101,10 +105,19 @@ function sort(jsonArray, argv) {
   return jsonArray
 }
 
-function mergeOverlapped(jsonArray, argv) {
-    return jsonArray
-}
+// merge funnction after https://stackoverflow.com/a/26391774
+function merge(ranges) {
+  var result = [], last;
 
+  ranges.forEach(function (r) {
+    if (!last || r[0] > last[1])
+        result.push(last = r);
+    else if (r[1] > last[1])
+        last[1] = r[1];
+  });
+
+  return result;
+}
 
 main()
 
