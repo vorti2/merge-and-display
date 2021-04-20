@@ -101,7 +101,7 @@ function sort(jsonArray, argv) {
   return jsonArray
 }
 
-function mergeOverlabed(jsonArray, argv) {
+function mergeOverlapped(jsonArray, argv) {
     return jsonArray
 }
 
