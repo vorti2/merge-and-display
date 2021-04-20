@@ -7,7 +7,6 @@ const { hideBin } = require('yargs/helpers')
 const fs = require('fs')
 const path = require( "path" )
 const jsonrepair = require('jsonrepair')
-const _ = require('lodash')
 
 function main() {
   yargs(hideBin(process.argv))

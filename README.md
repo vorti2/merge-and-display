@@ -30,13 +30,13 @@ npm i
 ## Start
 
 ```
-npm start
+node index.js
 ```
 
 ## Help
 
 ```
-npm start --help
+node index.js --help
 ```
 
 ## ...

@@ -4,7 +4,6 @@
   "description": "Merge tuples",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -17,9 +16,7 @@
   "author": "Wilhelm Vortisch <github@v-software.de>",
   "license": "ISC",
   "dependencies": {
-    "json-fixer": "^1.6.8",
     "jsonrepair": "^2.2.0",
-    "lodash": "^4.17.21",
     "yargs": "^16.2.0"
   }
 }
