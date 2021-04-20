@@ -6,7 +6,7 @@ const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 const fs = require('fs')
 const path = require( "path" )
-
+const jsonrepair = require('jsonrepair')
 
 function main() {
   yargs(hideBin(process.argv))
@@ -20,7 +20,11 @@ function main() {
       // serve(argv.port)
       const data = getFileContent(argv)
       let jsonArray = parse(data, argv)
-      sort(jsonArray, argv)
+      const sortedArray = sort(jsonArray, argv)
+      if (argv.verbose)
+        console.log(`item = >${JSON.stringify(sortedArray)}<`)
+
+      const mergedArray = mergeOverlabed(sortedArray, argv)
     })
     .option('verbose', {
       alias: 'v',
@@ -41,10 +45,24 @@ function getFileContent (argv) {
 
   try {
     const absolutePath = path.normalize( argv.filename );
-    const data = fs.readFileSync(absolutePath, 'utf8')
-    if (argv.verbose)
-      console.log(`Data read from file ${argv.filename}: ${data}`)
-    return data
+    let jsonContent = fs.readFileSync(absolutePath, 'utf8')
+    if (argv.verbose) {
+      console.log(`Data read from file ${argv.filename}: ${jsonContent}`)
+    }
+
+    // make real json array
+    jsonContent = jsonContent.trim()
+    // following is needed because jsonrepair has problems with opening brackets
+    if ( jsonContent[0] === '[' && jsonContent[1] !== '[') {
+      jsonContent = '[' + jsonContent;
+    }
+
+    const repaired = jsonrepair(jsonContent)
+    if (argv.verbose) {
+       console.log(`after jsonrepair: ${repaired}`)
+    }
+    // return data
+    return repaired
   } catch (err) {
     console.error(err)
   }
@@ -80,13 +98,12 @@ function sort(jsonArray, argv) {
 
   jsonArray.sort(compare)
 
-  if (argv.verbose)
-    console.log(`item = >${JSON.stringify(jsonArray)}<`)
-
+  return jsonArray
 }
 
-
-
+function mergeOverlabed(jsonArray, argv) {
+    return jsonArray
+}
 
 
 main()
