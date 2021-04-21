@@ -1,5 +1,6 @@
 # Performance measurement
 
+see also https://nodejs.org/en/docs/guides/simple-profiling/
 ## Call performance measurement system from NodeJS
 
 ```
