@@ -1,0 +1,316 @@
+Statistical profiling result from isolate-0x108008000-33657-v8.log, (270 ticks, 2 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+      2    0.7%          /usr/lib/system/libsystem_platform.dylib
+      2    0.7%          /usr/lib/system/libsystem_malloc.dylib
+      1    0.4%          /usr/lib/system/libsystem_pthread.dylib
+      1    0.4%          /usr/lib/system/libsystem_c.dylib
+      1    0.4%          /usr/lib/system/libdispatch.dylib
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+
+ [C++]:
+   ticks  total  nonlib   name
+    100   37.0%   38.0%  T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+     82   30.4%   31.2%  t __ZN4node2fsL4OpenERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+     31   11.5%   11.8%  t __ZN4node2fsL22InternalModuleReadJSONERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+     21    7.8%    8.0%  T __ZN4node13native_module15NativeModuleEnv15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+     14    5.2%    5.3%  T _semaphore_create
+      3    1.1%    1.1%  T __ZN4node10contextify17ContextifyContext15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+      2    0.7%    0.8%  t __ZN4node2fsL7ReadDirERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.4%    0.4%  t __ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m
+      1    0.4%    0.4%  t __ZN4node2fsL5LStatERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.4%    0.4%  t __ZN4node2fsL18InternalModuleStatERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.4%    0.4%  t __ZN2v88internal11StringShape33DispatchToSpecificTypeWithoutCastIZNS1_22DispatchToSpecificTypeIZNS0_6String3GetEiE19StringGetDispatchertJRiEEET0_S4_DpOT1_E17CastingDispatchertJRS4_S6_EEES7_SA_
+      1    0.4%    0.4%  T ___workq_kernreturn
+      1    0.4%    0.4%  T ___commpage_gettimeofday
+      1    0.4%    0.4%  T __ZN4node7binding18GetInternalBindingERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.4%    0.4%  T __ZN4node7TTYWrap3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+
+ [Summary]:
+   ticks  total  nonlib   name
+      0    0.0%    0.0%  JavaScript
+    261   96.7%   99.2%  C++
+      3    1.1%    1.1%  GC
+      7    2.6%          Shared libraries
+      2    0.7%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+    219  100.0%   81.1%  T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+    100   37.0%  T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+     50   50.0%    T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+     17   34.0%      LazyCompile: ~resolve node:path:1012:10
+     17  100.0%        LazyCompile: ~resolveExports node:internal/modules/cjs/loader:463:24
+     17  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:485:28
+     17  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:840:35
+      5   10.0%      T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+      2   40.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:485:28
+      1   50.0%          LazyCompile: ~resolveMainPath node:internal/modules/run_main:12:25
+      1  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:69:31
+      1   50.0%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:840:35
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:748:24
+      1   20.0%        LazyCompile: ~finalizeEsmResolution node:internal/modules/cjs/loader:930:31
+      1  100.0%          LazyCompile: ~resolveExports node:internal/modules/cjs/loader:463:24
+      1  100.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:485:28
+      1   20.0%        LazyCompile: ~Module.load node:internal/modules/cjs/loader:960:33
+      1  100.0%          LazyCompile: ~Module._load node:internal/modules/cjs/loader:748:24
+      1  100.0%            LazyCompile: ~Module.require node:internal/modules/cjs/loader:988:36
+      1   20.0%        Eval: ~<anonymous> node:url:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1  100.0%            LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:306:29
+      2    4.0%      LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:21:36
+      2  100.0%        Eval: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    4.0%      LazyCompile: ~parse /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs-parser/build/index.cjs:100:10
+      2  100.0%        LazyCompile: ~yargsParser.detailed /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs-parser/build/index.cjs:1025:33
+      2  100.0%          LazyCompile: ~parseArgs /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2654:41
+      2  100.0%            LazyCompile: ~get /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2651:14
+      1    2.0%      LazyCompile: ~syncExports node:internal/bootstrap/loaders:261:14
+      1  100.0%        LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:220:25
+      1  100.0%          LazyCompile: ~loadNativeModule node:internal/modules/cjs/helpers:35:26
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:748:24
+      1    2.0%      LazyCompile: ~statSync node:fs:1133:18
+      1  100.0%        LazyCompile: ~module.exports /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/escalade/sync/index.js:4:27
+      1  100.0%          LazyCompile: ~pkgUp /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2229:19
+      1  100.0%            LazyCompile: ~guessVersion /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2529:26
+      1    2.0%      LazyCompile: ~setArg /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs-parser/build/index.cjs:523:24
+      1  100.0%        LazyCompile: ~parse /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs-parser/build/index.cjs:100:10
+      1  100.0%          LazyCompile: ~yargsParser.detailed /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs-parser/build/index.cjs:1025:33
+      1  100.0%            LazyCompile: ~postProcessPositionals /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:543:36
+      1    2.0%      LazyCompile: ~resolveExports node:internal/modules/cjs/loader:463:24
+      1  100.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:485:28
+      1  100.0%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:840:35
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:748:24
+      1    2.0%      LazyCompile: ~resetOptions /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:1787:59
+      1  100.0%        LazyCompile: ~runCommand /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:389:42
+      1  100.0%          LazyCompile: ~parseArgs /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2654:41
+      1  100.0%            LazyCompile: ~get /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2651:14
+      1    2.0%      LazyCompile: ~realpathSync node:fs:1729:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:384:20
+      1  100.0%          LazyCompile: ~tryFile node:internal/modules/cjs/loader:375:17
+      1  100.0%            LazyCompile: ~tryPackage node:internal/modules/cjs/loader:329:20
+      1    2.0%      LazyCompile: ~readPackage node:internal/modules/cjs/loader:281:21
+      1  100.0%        LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:312:26
+      1  100.0%          LazyCompile: ~shouldUseESMLoader node:internal/modules/run_main:27:28
+      1  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:69:31
+      1    2.0%      LazyCompile: ~readFileSync node:fs:398:22
+      1  100.0%        LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1101:37
+      1  100.0%          LazyCompile: ~Module.load node:internal/modules/cjs/loader:960:33
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:748:24
+      1    2.0%      LazyCompile: ~promisify node:internal/util:292:19
+      1  100.0%        Eval: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1  100.0%            LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:306:29
+      1    2.0%      LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:78:28
+      1  100.0%        LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:21:36
+      1  100.0%          Eval: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    2.0%      LazyCompile: ~parseObject /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/jsonrepair/lib/cjs/jsonrepair.js:440:21
+      1  100.0%        LazyCompile: ~jsonrepair /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/jsonrepair/lib/cjs/jsonrepair.js:96:20
+      1  100.0%          LazyCompile: ~getFileContent /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/index.js:55:25
+      1  100.0%            LazyCompile: ~<anonymous> /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/index.js:21:8
+      1    2.0%      LazyCompile: ~once node:events:488:44
+      1  100.0%        LazyCompile: ~value node:internal/console/constructor:261:20
+      1  100.0%          LazyCompile: ~log node:internal/console/constructor:362:6
+      1  100.0%            t __ZN4node9inspector12_GLOBAL__N_120InspectorConsoleCallERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+      1    2.0%      LazyCompile: ~init node:internal/util/debuglog:73:16
+      1  100.0%        LazyCompile: ~debug node:internal/util/debuglog:77:15
+      1  100.0%          LazyCompile: ~logger node:internal/util/debuglog:92:18
+      1  100.0%            LazyCompile: ~Module._resolveLookupPaths node:internal/modules/cjs/loader:658:38
+      1    2.0%      LazyCompile: ~finalizeEsmResolution node:internal/modules/cjs/loader:930:31
+      1  100.0%        LazyCompile: ~resolveExports node:internal/modules/cjs/loader:463:24
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:485:28
+      1  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:840:35
+      1    2.0%      LazyCompile: ~debuglog node:internal/util/debuglog:72:18
+      1  100.0%        Eval: ~<anonymous> node:internal/modules/esm/module_map:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1  100.0%            LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:306:29
+      1    2.0%      LazyCompile: ~Yargs.self.positional /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2383:32
+      1  100.0%        LazyCompile: ~<anonymous> /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/index.js:16:65
+      1  100.0%          LazyCompile: ~runCommand /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:389:42
+      1  100.0%            LazyCompile: ~parseArgs /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2654:41
+      1    2.0%      LazyCompile: ~Socket node:net:277:16
+      1  100.0%        LazyCompile: ~WriteStream node:tty:85:21
+      1  100.0%          LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:41:35
+      1  100.0%            LazyCompile: ~getStdout node:internal/bootstrap/switches/is_main_thread:120:19
+      1    2.0%      LazyCompile: ~Module.load node:internal/modules/cjs/loader:960:33
+      1  100.0%        LazyCompile: ~Module._load node:internal/modules/cjs/loader:748:24
+      1  100.0%          LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:69:31
+      1  100.0%            Eval: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    2.0%      LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1101:37
+      1  100.0%        LazyCompile: ~Module.load node:internal/modules/cjs/loader:960:33
+      1  100.0%          LazyCompile: ~Module._load node:internal/modules/cjs/loader:748:24
+      1  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:69:31
+      1    2.0%      Eval: ~<instance_members_initializer> node:internal/util/iterable_weak_map:28:3
+      1  100.0%        LazyCompile: ~IterableWeakMap node:internal/util/iterable_weak_map:27:1
+      1  100.0%          Eval: ~<anonymous> node:internal/source_map/source_map_cache:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    2.0%      Eval: ~<anonymous> node:url:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:306:29
+      1  100.0%            Eval: ~<anonymous> node:internal/modules/package_json_reader:1:1
+      1    2.0%      Eval: ~<anonymous> node:internal/util/iterable_weak_map:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:306:29
+      1  100.0%            Eval: ~<anonymous> node:internal/source_map/source_map_cache:1:1
+      1    2.0%      Eval: ~<anonymous> node:internal/fs/rimraf:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:306:29
+      1  100.0%            Eval: ~<anonymous> node:internal/fs/promises:1:1
+      1    2.0%      Eval: ~<anonymous> /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/index.cjs:1:1
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1046:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1101:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:960:33
+      3    3.0%    LazyCompile: ~resolveExports node:internal/modules/cjs/loader:463:24
+      3  100.0%      LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:485:28
+      3  100.0%        LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:840:35
+      3  100.0%          LazyCompile: ~Module._load node:internal/modules/cjs/loader:748:24
+      3  100.0%            LazyCompile: ~Module.require node:internal/modules/cjs/loader:988:36
+      2    2.0%    LazyCompile: ~normalizeString node:path:61:25
+      2  100.0%      LazyCompile: ~resolve node:path:1012:10
+      1   50.0%        LazyCompile: ~resolveExports node:internal/modules/cjs/loader:463:24
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:485:28
+      1  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:840:35
+      1   50.0%        LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:78:28
+      1  100.0%          LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:21:36
+      1  100.0%            Eval: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    2.0%    LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:306:29
+      2  100.0%      Eval: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.0%    LazyCompile: ~setupDebugEnv node:internal/bootstrap/pre_execution:190:23
+      1  100.0%      LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:21:36
+      1  100.0%        Eval: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.0%    LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:312:26
+      1  100.0%      LazyCompile: ~trySelf node:internal/modules/cjs/loader:432:17
+      1  100.0%        LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:840:35
+      1  100.0%          LazyCompile: ~Module._load node:internal/modules/cjs/loader:748:24
+      1  100.0%            LazyCompile: ~Module.require node:internal/modules/cjs/loader:988:36
+      1    1.0%    LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:78:28
+      1  100.0%      LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:21:36
+      1  100.0%        Eval: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.0%    LazyCompile: ~parseArgs /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:107:23
+      1  100.0%      LazyCompile: ~argsert /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:106:17
+      1  100.0%        LazyCompile: ~addHelpOpt /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2534:54
+      1  100.0%          LazyCompile: ~Yargs /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:1723:15
+      1  100.0%            LazyCompile: ~Argv /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/index.cjs:11:14
+      1    1.0%    LazyCompile: ~afterWriteTick node:internal/streams/writable:488:24
+      1  100.0%      LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:66:35
+      1    1.0%    LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:840:35
+      1  100.0%      LazyCompile: ~Module._load node:internal/modules/cjs/loader:748:24
+      1  100.0%        LazyCompile: ~Module.require node:internal/modules/cjs/loader:988:36
+      1  100.0%          LazyCompile: ~require node:internal/modules/cjs/helpers:91:31
+      1  100.0%            Eval: ~<anonymous> /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/index.js:1:1
+      1    1.0%    Eval: ~<anonymous> node:internal/util/iterable_weak_map:1:1
+      1  100.0%      LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1  100.0%        LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:306:29
+      1  100.0%          Eval: ~<anonymous> node:internal/source_map/source_map_cache:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    1.0%    Eval: ~<anonymous> node:internal/options:1:1
+      1  100.0%      LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1  100.0%        LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:306:29
+      1  100.0%          Eval: ~<anonymous> node:internal/bootstrap/pre_execution:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    1.0%    Eval: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      1  100.0%      LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1  100.0%        LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:306:29
+      1  100.0%          LazyCompile: ~initializeCJSLoader node:internal/bootstrap/pre_execution:413:29
+      1  100.0%            LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:21:36
+      1    1.0%    Eval: ~<anonymous> node:internal/main/run_main_module:1:1
+
+     82   30.4%  t __ZN4node2fsL4OpenERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+     82  100.0%    T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+     82  100.0%      LazyCompile: ~openSync node:fs:496:18
+     82  100.0%        LazyCompile: ~readFileSync node:fs:398:22
+     76   92.7%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1101:37
+     76  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:960:33
+      5    6.1%          LazyCompile: ~_readLocaleFile /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/y18n/build/index.cjs:135:20
+      5  100.0%            LazyCompile: ~__ /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/y18n/build/index.cjs:20:7
+      1    1.2%          LazyCompile: ~getFileContent /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/index.js:55:25
+      1  100.0%            LazyCompile: ~<anonymous> /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/index.js:21:8
+
+     31   11.5%  t __ZN4node2fsL22InternalModuleReadJSONERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+     31  100.0%    T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+     31  100.0%      LazyCompile: ~read node:internal/modules/package_json_reader:16:14
+     31  100.0%        LazyCompile: ~readPackage node:internal/modules/cjs/loader:281:21
+     24   77.4%          LazyCompile: ~resolveExports node:internal/modules/cjs/loader:463:24
+     24  100.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:485:28
+      7   22.6%          LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:312:26
+      5   71.4%            LazyCompile: ~shouldUseESMLoader node:internal/modules/run_main:27:28
+      2   28.6%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1101:37
+
+     21    7.8%  T __ZN4node13native_module15NativeModuleEnv15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+     21  100.0%    T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+     21  100.0%      LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+     20   95.2%        LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:306:29
+      3   15.0%          Eval: ~<anonymous> node:tty:1:1
+      3  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      2   10.0%          Eval: ~<anonymous> node:internal/process/esm_loader:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      2   10.0%          Eval: ~<anonymous> node:assert:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    5.0%          LazyCompile: ~setupInspectorHooks node:internal/bootstrap/pre_execution:224:29
+      1  100.0%            LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:21:36
+      1    5.0%          LazyCompile: ~lazyLoadStreams node:fs:2071:25
+      1  100.0%            LazyCompile: ~get ReadStream node:fs:2179:17
+      1    5.0%          LazyCompile: ~initializeCJSLoader node:internal/bootstrap/pre_execution:413:29
+      1  100.0%            LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:21:36
+      1    5.0%          LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:41:35
+      1  100.0%            LazyCompile: ~getStdout node:internal/bootstrap/switches/is_main_thread:120:19
+      1    5.0%          Eval: ~<anonymous> node:url:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    5.0%          Eval: ~<anonymous> node:net:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    5.0%          Eval: ~<anonymous> node:internal/source_map/source_map_cache:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    5.0%          Eval: ~<anonymous> node:internal/modules/package_json_reader:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    5.0%          Eval: ~<anonymous> node:internal/modules/esm/resolve:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    5.0%          Eval: ~<anonymous> node:internal/modules/esm/get_source:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    5.0%          Eval: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    5.0%          Eval: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    5.0%          Eval: ~<anonymous> node:internal/bootstrap/pre_execution:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:273:27
+      1    4.8%        LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:220:25
+      1  100.0%          LazyCompile: ~loadNativeModule node:internal/modules/cjs/helpers:35:26
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:748:24
+
+     14    5.2%  T _semaphore_create
+      5   35.7%    T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+      1   20.0%      T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+      1  100.0%        LazyCompile: ~parseCommand /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:72:22
+      1  100.0%          LazyCompile: ~parseArgs /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:107:23
+      1  100.0%            LazyCompile: ~argsert /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:106:17
+      1   20.0%      LazyCompile: ~runValidation /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2811:49
+      1  100.0%        LazyCompile: ~runCommand /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:389:42
+      1  100.0%          LazyCompile: ~parseArgs /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2654:41
+      1  100.0%            LazyCompile: ~get /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2651:14
+      1   20.0%      LazyCompile: ~runCommand /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:389:42
+      1  100.0%        LazyCompile: ~parseArgs /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2654:41
+      1  100.0%          LazyCompile: ~get /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:2651:14
+      1  100.0%            LazyCompile: ~main /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/index.js:13:14
+      1   20.0%      LazyCompile: ~nextTick node:internal/process/task_queues:102:18
+      1  100.0%        LazyCompile: ~onwrite node:internal/streams/writable:431:17
+      1  100.0%          LazyCompile: ~afterWriteDispatched node:internal/stream_base_commons:155:30
+      1  100.0%            LazyCompile: ~writeGeneric node:internal/stream_base_commons:147:22
+      1   20.0%      LazyCompile: ~<anonymous> /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:1836:31
+      1  100.0%        T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+      1  100.0%          LazyCompile: ~resetOptions /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:1787:59
+      1  100.0%            LazyCompile: ~Yargs /Users/wvo/Documents/Development/merge-and-display/work/merge-and-display/node_modules/yargs/build/index.cjs:1723:15
+
+      3    1.1%  T __ZN4node10contextify17ContextifyContext15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+      3  100.0%    T __ZN2v84base16LazyInstanceImplINS_8internal9CodeEntryENS0_33DynamicallyAllocatedInstanceTraitIS3_EENS3_26UnresolvedEntryCreateTraitENS0_23ThreadSafeInitOnceTraitENS0_18LeakyInstanceTraitIS3_EEE12InitInstanceEPv
+      3  100.0%      LazyCompile: ~compileFunction node:vm:311:25
+      3  100.0%        LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1008:18
+      3  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1046:37
+      3  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1101:37
+
