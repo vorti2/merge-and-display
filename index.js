@@ -31,6 +31,10 @@ function main() {
       // merge the array
       const mergedArray = merge(sortedArray, argv);
       console.log(`Result after merge: >${JSON.stringify(mergedArray)}<`)
+      if (argv.memory) {
+        const used = process.memoryUsage().heapUsed / 1024 / 1024;
+        console.log(`The script uses approximately ${used} MB`);
+      }
     })
     .command('interactive', 'execute merge with JSON data read from CLI', (yargs) => {
       yargs
@@ -52,6 +56,10 @@ function main() {
       // merge the array
       const mergedArray = merge(sortedArray, argv);
       console.log(`Result after merge: >${JSON.stringify(mergedArray)}<`)
+      if (argv.memory) {
+        const used = process.memoryUsage().heapUsed / 1024 / 1024;
+        console.log(`The script uses approximately ${used} MB`);
+      }
     })
     // optional parameters for the CLI use
     .option('verbose', {
@@ -63,6 +71,11 @@ function main() {
       alias: 'h',
       type: 'boolean',
       description: 'Help for usage'
+    })
+    .option('memory', {
+      alias: 'm',
+      type: 'boolean',
+      description: 'Memory usage of the complete program'
     })
     .argv
 }
