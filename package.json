@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "jsonrepair": "^2.2.0",
+    "readline-sync": "^1.4.10",
     "yargs": "^16.2.0"
   }
 }

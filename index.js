@@ -7,22 +7,43 @@ const fs = require('fs')
 const path = require( "path" )
 const jsonrepair = require('jsonrepair');
 const { strict } = require('yargs');
-
+const reader = require('readline-sync');
 
 // main function with call of yargc for argument extraction and CLI help
 function main() {
   // call of yargs which call `hidebin` (helper function for slice the argv)
   yargs(hideBin(process.argv))
-    .command('test [filename]', 'execute merge with test-data from <filename>', (yargs) => {
+    .command('test [filename]', 'execute merge with data read from <filename>', (yargs) => {
       yargs
         .positional('test', {
-          describe: 'read test-data from file <filename>',
+          describe: 'read data from <filename>',
         })
     }, (argv) => {
       // main calls of the pogram
       if (argv.verbose) console.info(`use as input: ${argv.filename}`)
       // read in the data from the file `filename`
       const data = getFileContent(argv)
+      // parse the data (with possibility to "correct" the JSON format)
+      let jsonArray = parse(data, argv)
+      console.log(`Original: >${JSON.stringify(jsonArray)}<`)
+      // sort the array
+      const sortedArray = sort(jsonArray, argv)
+      // merge the array
+      const mergedArray = merge(sortedArray, argv);
+      console.log(`Result after merge: >${JSON.stringify(mergedArray)}<`)
+    })
+    .command('interactive', 'execute merge with JSON data read from CLI', (yargs) => {
+      yargs
+        .positional('interactive', {
+          describe: 'read JSON data from CLI',
+        })
+    }, (argv) => {
+      // main calls of the pogram
+      if (argv.verbose) {
+        console.info(`interactive mode, read from CLI ....`)
+      }
+      // read in the data from the CLI
+      const data = getDataFromCLI(argv)
       // parse the data (with possibility to "correct" the JSON format)
       let jsonArray = parse(data, argv)
       console.log(`Original: >${JSON.stringify(jsonArray)}<`)
@@ -47,12 +68,32 @@ function main() {
 }
 
 //
+// getDataFromCLI: read in the data from the CLI
+//
+// Parmeters:
+// argv: array of program arguments
+//
+function getDataFromCLI(argv) {
+
+  try {
+    const jsonContent = reader.question(`Get in the tuples (in JSON array notation like "[[25,30],[2,19],[14,23],[4,8]]"))\n`)
+    if (argv.verbose) {
+      console.log(`Data read from file CLI: ${jsonContent}`)
+    }
+    return processReadData(jsonContent, argv)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+
+//
 // getFileContent: read in the data from the file `filename`
 //
 // Parmeters:
 // argv: array of program arguments
 //
-function getFileContent (argv) {
+function getFileContent(argv) {
 
   try {
     const absolutePath = path.normalize( argv.filename );
@@ -60,25 +101,31 @@ function getFileContent (argv) {
     if (argv.verbose) {
       console.log(`Data read from file ${argv.filename}: ${jsonContent}`)
     }
+    return processReadData(jsonContent, argv)
+  } catch (err) {
+    console.error(err)
+  }
 
+}
+
+function processReadData(data, argv) {
     // make real json array, no empty space before or after the string
-    jsonContent = jsonContent.trim()
+    data = data.trim()
     // following is needed because jsonrepair has problems with opening brackets
-    if ( jsonContent[0] === '[' && jsonContent[1] !== '[') {
-      jsonContent = '[' + jsonContent;
+    if ( data[0] === '[' && data[1] !== '[') {
+      data = '[' + data;
     }
 
     // use `jsonrepair` to correct JSON (see https://www.npmjs.com/package/jsonrepair)
-    const repaired = jsonrepair(jsonContent)
+    const repaired = jsonrepair(data)
     if (argv.verbose) {
        console.log(`after jsonrepair: ${JSON.stringify(repaired)}`)
     }
     // return data
     return repaired
-  } catch (err) {
-    console.error(err)
-  }
 }
+
+
 
 //
 // parse: read in the data from the file `filename`
