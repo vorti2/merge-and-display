@@ -49,3 +49,7 @@ node index.js test test-data/test-data-003.cli
 ```
 node index.js interactive
 ```
+
+## Tips & Tricks
+
+* the input (in JSON) used in the this program can be incomplete like `[25,30] [2,19]   [14,23] [4,8]]`, but not (for example) `25,30] [2,19] [14,23] [4,8]]`
