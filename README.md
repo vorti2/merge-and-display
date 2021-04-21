@@ -2,7 +2,7 @@
 
 Nodejs program, that solves the following task:
 
-Implement a function MERGE which receives a list of intervals and returns a list of intervals as a result. In the result all overlapping intervals shall be remembered. All non-overlapping intervals remain untouched.
+Implement a function MERGE which receives a list of intervals _given as JSON array_ and returns a list of intervals as a result. In the result all overlapping intervals shall be remembered. All non-overlapping intervals remain untouched.
 
 Example:
 
