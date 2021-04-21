@@ -43,3 +43,9 @@ node index.js --help
 ```
 node index.js test test-data/test-data-003.cli
 ```
+
+## Example call with interactive mode
+
+```
+node index.js interactive
+```
