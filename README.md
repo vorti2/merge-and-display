@@ -30,7 +30,7 @@ npm i
 ## Start
 
 ```
-node index.js
+node index.js <interactive | test>
 ```
 
 ## Help
