@@ -27,17 +27,18 @@ Install the used libs with following command:
 npm i
 ```
 
+## Help
+
+```
+node index.js --help
+```
+
 ## Start
 
 ```
 node index.js <interactive | test>
 ```
 
-## Help
-
-```
-node index.js --help
-```
 ## Example call with test file
 
 ```
