@@ -17,11 +17,11 @@ Output: [2,23] [25,30]
 
 ## Prerequisites
 
-* Nodejs 14.x.y installation
+* Nodejs 15.x.y installation (tested with v15.14.0 on MacOS)
 
 ## Installation
 
-with
+Install the used libs with following command:
 
 ```
 npm i
@@ -38,6 +38,8 @@ node index.js
 ```
 node index.js --help
 ```
+## Example call with test file
 
-## ...
-
+```
+node index.js test test-data/test-data-003.cli
+```

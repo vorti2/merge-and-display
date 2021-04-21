@@ -13,7 +13,7 @@ const { strict } = require('yargs');
 function main() {
   // call of yargs which call `hidebin` (helper function for slice the argv)
   yargs(hideBin(process.argv))
-    .command('test [filename]', 'execute merge with test-data', (yargs) => {
+    .command('test [filename]', 'execute merge with test-data from <filename>', (yargs) => {
       yargs
         .positional('test', {
           describe: 'read test-data from file <filename>',
